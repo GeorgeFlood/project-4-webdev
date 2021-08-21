@@ -55,22 +55,14 @@ getRandomQuote = arr => randomQuote = arr[Math.floor(Math.random() * arr.length)
 
 let printQuote = () => {
   let a = getRandomQuote(quotes);
-  let html;
-  if (a.year || a.citation) {
-    let html = `
+  let html = `
   <p class='quote'>${a.quote}</p>
   <p class='source'>${a.source}
   <span class='citation'>${a.citation}</span>
   <span class='year'>${a.year}</span></p>
   `
-    document.getElementById('quote-box').innerHTML = html;
-  } else if (!a.year || !a.citation) {
-    let html = `
-  <p class='quote'>${a.quote}</p>
-  <p class='source'>${a.source}
-  `
-    document.getElementById('quote-box').innerHTML = html;
-  }
+  document.getElementById('quote-box').innerHTML = html;
+
   return html;
 }
 
