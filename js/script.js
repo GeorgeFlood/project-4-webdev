@@ -15,7 +15,7 @@ let quotes = [{
     quote: 'I have no special talent. I am only passionately curious.',
     source: 'Albert Einstein',
     citation: 'Science!',
-    year: 'Unknown'
+    year: '',
   },
   {
     quote: 'Learning never exhausts the mind',
@@ -32,14 +32,14 @@ let quotes = [{
   {
     quote: 'Be yourself, everyone else is taken',
     source: 'Oscar Wilde',
-    Citation: 'Deep',
+    citation: 'Deep',
     year: '1976'
   },
   {
     quote: 'You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.',
     source: 'Dr.Suess',
     citation: 'Imagination',
-    year: 'Unknown'
+    year: '',
   }
 ];
 
@@ -55,14 +55,22 @@ getRandomQuote = arr => randomQuote = arr[Math.floor(Math.random() * arr.length)
 
 let printQuote = () => {
   let a = getRandomQuote(quotes);
-  let html = `
+  let html;
+  if (a.year || a.citation) {
+    let html = `
   <p class='quote'>${a.quote}</p>
   <p class='source'>${a.source}
   <span class='citation'>${a.citation}</span>
   <span class='year'>${a.year}</span></p>
   `
-  document.getElementById('quote-box').innerHTML = html;
-
+    document.getElementById('quote-box').innerHTML = html;
+  } else if (!a.year || !a.citation) {
+    let html = `
+  <p class='quote'>${a.quote}</p>
+  <p class='source'>${a.source}
+  `
+    document.getElementById('quote-box').innerHTML = html;
+  }
   return html;
 }
 
