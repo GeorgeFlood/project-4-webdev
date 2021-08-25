@@ -12,11 +12,12 @@ Project 4 - Random Quote Generator
  ***/
 
 
+
 let quotes = [{
     quote: 'I have no special talent. I am only passionately curious.',
     source: 'Albert Einstein',
     citation: 'Science!',
-    year: 'unknown',
+    year: 'unknown'
   },
   {
     quote: 'Learning never exhausts the mind',
@@ -40,8 +41,15 @@ let quotes = [{
     quote: 'You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.',
     source: 'Dr.Suess',
     citation: 'Imagination',
-    year: 'unknown',
-  }
+    year: 'unknown'
+  },
+  {
+    quote: `If you fulfill your obligations everyday, you don't need to worry about the future`,
+    source: 'Jordan Peterson',
+    citation: 'Psychology',
+    year: 'unknown'
+  },
+
 ];
 
 /***
@@ -62,7 +70,7 @@ let printQuote = () => {
     html = `
     <p class='quote'>${a.quote}</p>
     <p class='source'>${a.source}
-    <span class='citation'></span>
+    <span class='citation'>Citation can't be found!</span>
     <span class='year'>${a.year}</span></p>
     `
   } else if (a.year === 'unknown') {
@@ -70,7 +78,7 @@ let printQuote = () => {
     <p class='quote'>${a.quote}</p>
   <p class='source'>${a.source}
   <span class='citation'>${a.citation}</span>
-  <span class='year'></span></p>
+  <span class='year'>Year isn't known!</span></p>
     `
   } else {
     html = `
