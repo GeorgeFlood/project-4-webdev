@@ -11,11 +11,12 @@ Project 4 - Random Quote Generator
  * `quotes` array 
  ***/
 
+
 let quotes = [{
     quote: 'I have no special talent. I am only passionately curious.',
     source: 'Albert Einstein',
     citation: 'Science!',
-    year: '',
+    year: 'unknown',
   },
   {
     quote: 'Learning never exhausts the mind',
@@ -39,7 +40,7 @@ let quotes = [{
     quote: 'You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.',
     source: 'Dr.Suess',
     citation: 'Imagination',
-    year: '',
+    year: 'unknown',
   }
 ];
 
@@ -53,24 +54,41 @@ getRandomQuote = arr => randomQuote = arr[Math.floor(Math.random() * arr.length)
  * `printQuote` function
  ***/
 
+
 let printQuote = () => {
   let a = getRandomQuote(quotes);
-  let html = `
+  let html;
+  if (a.citation === 'unknown') {
+    html = `
+    <p class='quote'>${a.quote}</p>
+    <p class='source'>${a.source}
+    <span class='citation'></span>
+    <span class='year'>${a.year}</span></p>
+    `
+  } else if (a.year === 'unknown') {
+    html = `
+    <p class='quote'>${a.quote}</p>
+  <p class='source'>${a.source}
+  <span class='citation'>${a.citation}</span>
+  <span class='year'></span></p>
+    `
+  } else {
+    html = `
   <p class='quote'>${a.quote}</p>
   <p class='source'>${a.source}
   <span class='citation'>${a.citation}</span>
   <span class='year'>${a.year}</span></p>
   `
+  }
   document.getElementById('quote-box').innerHTML = html;
-
   return html;
 }
 
 random_bg_color = () => {
-  var x = Math.floor(Math.random() * 256);
-  var y = Math.floor(Math.random() * 256);
-  var z = Math.floor(Math.random() * 256);
-  var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+  let x = Math.floor(Math.random() * 256);
+  let y = Math.floor(Math.random() * 256);
+  let z = Math.floor(Math.random() * 256);
+  let bgColor = "rgb(" + x + "," + y + "," + z + ")";
   console.log(bgColor);
 
   document.body.style.background = bgColor;
