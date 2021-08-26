@@ -17,7 +17,7 @@ let quotes = [{
     quote: 'I have no special talent. I am only passionately curious.',
     source: 'Albert Einstein',
     citation: 'Science!',
-    year: 'unknown'
+    year: ''
   },
   {
     quote: 'Learning never exhausts the mind',
@@ -34,20 +34,20 @@ let quotes = [{
   {
     quote: 'Be yourself, everyone else is taken',
     source: 'Oscar Wilde',
-    citation: 'Deep',
+    citation: '',
     year: '1976'
   },
   {
     quote: 'You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.',
     source: 'Dr.Suess',
     citation: 'Imagination',
-    year: 'unknown'
+    year: ''
   },
   {
     quote: `If you fulfill your obligations everyday, you don't need to worry about the future`,
     source: 'Jordan Peterson',
     citation: 'Psychology',
-    year: 'unknown'
+    year: ''
   },
 
 ];
@@ -66,20 +66,18 @@ getRandomQuote = arr => randomQuote = arr[Math.floor(Math.random() * arr.length)
 let printQuote = () => {
   let a = getRandomQuote(quotes);
   let html;
-  if (a.citation === 'unknown') {
+  if (a.citation === '') {
     html = `
     <p class='quote'>${a.quote}</p>
     <p class='source'>${a.source}
-    <span class='citation'>Citation can't be found!</span>
     <span class='year'>${a.year}</span></p>
-    `
-  } else if (a.year === 'unknown') {
+    `;
+  } else if (a.year === '') {
     html = `
     <p class='quote'>${a.quote}</p>
   <p class='source'>${a.source}
   <span class='citation'>${a.citation}</span>
-  <span class='year'>Year isn't known!</span></p>
-    `
+    `;
   } else {
     html = `
   <p class='quote'>${a.quote}</p>
