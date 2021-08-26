@@ -55,6 +55,8 @@ let quotes = [{
 /***
  * `getRandomQuote` function
  ***/
+
+// cycles through my array by random and picks an object.
 getRandomQuote = arr => randomQuote = arr[Math.floor(Math.random() * arr.length)];
 
 
@@ -62,7 +64,8 @@ getRandomQuote = arr => randomQuote = arr[Math.floor(Math.random() * arr.length)
  * `printQuote` function
  ***/
 
-
+//  conditions so a key doesn't have an empty value --
+// inner-HTML manipulating the quote-box by the value of getRandomQuote.
 let printQuote = () => {
   let a = getRandomQuote(quotes);
   let html;
@@ -90,6 +93,7 @@ let printQuote = () => {
   return html;
 }
 
+// function so the background style changes each click by random.
 random_bg_color = () => {
   let x = Math.floor(Math.random() * 256);
   let y = Math.floor(Math.random() * 256);
