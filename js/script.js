@@ -17,13 +17,11 @@ let quotes = [{
     quote: 'I have no special talent. I am only passionately curious.',
     source: 'Albert Einstein',
     citation: 'Science!',
-    year: ''
   },
   {
     quote: 'Learning never exhausts the mind',
     source: 'Leonardo Da Vinci',
     citation: 'Inventing',
-    year: '1471'
   },
   {
     quote: `Don't let yesterday take up too much of today`,
@@ -34,20 +32,17 @@ let quotes = [{
   {
     quote: 'Be yourself, everyone else is taken',
     source: 'Oscar Wilde',
-    citation: '',
     year: '1976'
   },
   {
     quote: 'You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.',
     source: 'Dr.Suess',
     citation: 'Imagination',
-    year: ''
   },
   {
     quote: `If you fulfill your obligations everyday, you don't need to worry about the future`,
     source: 'Jordan Peterson',
     citation: 'Psychology',
-    year: ''
   },
 
 ];
@@ -66,16 +61,16 @@ getRandomQuote = arr => randomQuote = arr[Math.floor(Math.random() * arr.length)
 
 //  conditions so a key doesn't have an empty value --
 // inner-HTML manipulating the quote-box by the value of getRandomQuote.
-let printQuote = () => {
+let printQuote = arr => {
   let a = getRandomQuote(quotes);
   let html;
-  if (a.citation === '') {
+  if (!a.citation) {
     html = `
     <p class='quote'>${a.quote}</p>
     <p class='source'>${a.source}
     <span class='year'>${a.year}</span></p>
     `;
-  } else if (a.year === '') {
+  } else if (!a.year) {
     html = `
     <p class='quote'>${a.quote}</p>
   <p class='source'>${a.source}
